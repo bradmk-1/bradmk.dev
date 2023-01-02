@@ -1,0 +1,53 @@
+---
+const links = [
+    ["Contact Me", "mailto:contact@bradmk.dev"],
+    ["GitHub", "https://github.com/bradmk-1"],
+    ["LinkedIn", "https://www.linkedin.com/in/bradley-m-b1056118b/"],
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bradley Moore</title>
+
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="Portfolio of Bradley Moore" />
+        <meta name="author" content="Bradley Moore" />
+
+        <link href="/favicon.ico" rel="icon" />
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/favicon-mask.svg" rel="mask-icon" color="#ce6fea" />
+        <link href="/touch-180x180.png" rel="apple-touch-icon" />
+        <meta content="#ce6fea" name="theme-color" />
+    </head>
+
+    <body class={`h-screen bg-white text-slate-800`}>
+        <div
+            class={`h-4/5 w-full m-auto p-6 flex-grow flex flex-col items-center`}
+        >
+            <main class="flex flex-col flex-grow py-12">
+                <slot />
+            </main>
+
+            <footer
+                class="flex mb-4 text-sm sm:text-base flex-col justify-between sm:flex-row sm:items-end"
+            >
+                <ul class="flex flex-wrap flex-shrink-0 max-w-full mr-6">
+                    {
+                        links.map(([label, href]) => (
+                            <li class="mr-8">
+                                <a
+                                    href={href}
+                                    class="border-b text-slate-600 transition duration-700 ease-in-out hover:text-slate-800"
+                                >
+                                    {label}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </footer>
+        </div>
+    </body>
+</html>
